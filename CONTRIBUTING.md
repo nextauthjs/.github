@@ -1,10 +1,10 @@
 # Contributing guide
 
-Contributions and feedback on your experience of using this software are welcome.
-
-This includes bug reports, feature requests, ideas, pull requests, and examples of how you have used this software.
+Contributions and feedback on your experience of using this software are welcome. This includes bug reports, feature requests, ideas, pull requests, and examples of how you have used this software.
 
 Please see the [Code of Conduct](CODE_OF_CONDUCT.md) and follow any templates configured in GitHub when reporting bugs, requesting enhancements, or contributing code.
+
+If you found a security vulnerability, please do not open an issue nor raise a Pull Request for it. Kindly follow our [Security Disclosure Guide](https://authjs.dev/security#reporting-a-vulnerability).
 
 Please raise any significant new functionality or breaking change an issue for discussion before raising a Pull Request for it.
 
@@ -16,17 +16,49 @@ Before contributing, we recommend you read the [Tour de Source: NextAuth.js](htt
 
 ### Pull Requests
 
-- The latest changes are always in `main`, so please make your Pull Request against that branch.
-- Pull Requests should be raised for any change
-- Pull Requests need approval of a [core contributor](https://next-auth.js.org/contributors#core-team) before merging
-- We use ESLint/Prettier for linting/formatting, so please run `pnpm lint:fix` before committing to make resolving conflicts easier (VSCode users, check out [this ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [this Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to fix lint and formatting issues in development)
-- We encourage you to test your changes, and if you have the opportunity, please make those tests part of the Pull Request
-- If you add new functionality, please provide the corresponding documentation as well and make it part of the Pull Request
+- We are maintaining two major branches:
+  - The `main` is for the latest changes regarding the `core` package, the adapters packages, and framework packages.
+  - The `v4` branch is for `next-auth@v4` related changes. 
+  - Please make your Pull Request against the according branch.
+- Pull Requests need approval of a [core contributor](https://next-auth.js.org/contributors#core-team) before merging.
+- We use TypeScript for source.
+- We use ESLint/Prettier for linting/formatting, so please run `pnpm lint` and `pnpm format` before committing to make resolving conflicts easier (VSCode users, check out [this ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [this Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to fix lint and formatting issues in development).
+- We encourage you to test your changes, and if you have the opportunity, please make those tests part of the Pull Request.
+- If you add new functionality, please provide the corresponding documentation as well and make it part of the Pull Request. We use JSDoc, which means most of the time, the documentation is in the same file as the source code.
+
+#### Adding a new Provider
+
+> NOTE: We only support new providers in the `@auth/core` package going forward. 
+
+If you think your custom provider might be useful to others, we encourage you to open a PR and add it to the built-in list so others can discover it much more easily! You will have to make the following changes:
+
+1. Add your config: [`packages/core/src/providers/{provider}.ts`](https://github.com/nextauthjs/next-auth/tree/main/packages/core/src/providers) (Make sure you use a named default export, like `export default function YourProvider`). 
+1. Add the provider documentation in the same file using JSDoc.
+1. Add the provider logo to the `docs/static/img/providers/` directory.
+1. Add the provider in the drop-down list in [`.github/ISSUE_TEMPLATE/2_bug_provider.yml`](https://github.com/nextauthjs/next-auth/blob/main/.github/ISSUE_TEMPLATE/2_bug_provider.yml)
+
+That's it! 🎉 Others will be able to discover this provider much more easily now!
+
+You can look at the existing built-in providers for inspiration. 
+- If you are adding a new OIDC provider, take a look at [auth0.ts](https://github.com/nextauthjs/next-auth/blob/main/packages/core/src/providers/auth0.ts).
+- If you are adding a new OAuth 2.0 provider, take a look at [google.ts](https://github.com/nextauthjs/next-auth/blob/main/packages/core/src/providers/google.ts).
+
+#### Adding a new Database Adapter
+
+If you would like to contribute to an existing database adapter or help create a new one, you can find them under `packages/adapter-*`. Here are what we considered a baseline to get an adapter PR merged:
+
+1. It should have working tests
+1. The package is published as ESM-only and under the `@auth/` namespace.
+1. JSDoc for documentation.
+1. Add the adapter name in `.github/ISSUE_TEMPLATE/3_bug_adapter.yml`, `.github/issue-labeler.yml`, `.github/pr-labeler.yml`
+
+You can look at the existing built-in adapters for inspiration. For example: Prisma, Kysely, Drizzle, etc.
+
+> NOTE: For core team reviewer, make sure to check all database queries to avoid introduce any vulnerabilities.
 
 ### Setting up local environment
 
-
-A quick guide on how to setup _next-auth_ locally to work on it and test out any changes:
+We use Turborepo and pnpm for managing our packages. Here is a quick guide on how to setup _next-auth_ locally to work on it and test out any changes:
 
 1. Clone the repo:
 
@@ -71,7 +103,7 @@ Your developer application will be available on `http://localhost:3000`
 
 That's it! 🎉
 
-If you need an example project to link to, you can use [next-auth-example](https://github.com/iaincollins/next-auth-example).
+If you need an example project to link to, you can use [next-auth-example](https://github.com/nextauthjs/next-auth-example).
 
 #### Hot reloading
 
@@ -81,22 +113,6 @@ When running `pnpm dev`, you start a Next.js developer server on `http://localho
 
 > NOTE: The setup is as follows: The development application lives inside the `app` folder, and whenever you make a change to the `src` folder in the root (where next-auth is), it gets copied into `app` every time (gitignored), so Next.js can pick them up and apply hot reloading. This is to avoid some annoying issues with how symlinks are working with different React builds, and also to provide a super-fast feedback loop while developing core features.
 
-#### Providers
-
-If you think your custom provider might be useful to others, we encourage you to open a PR and add it to the built-in list so others can discover it much more easily! You only need to add two changes:
-
-1. Add your config: [`src/providers/{provider}.js`](https://github.com/nextauthjs/next-auth/tree/main/packages/next-auth/src/providers) (Make sure you use a named default export, like `export default function YourProvider`!)
-2. Add provider documentation: [`www/docs/providers/{provider}.md`](https://github.com/nextauthjs/next-auth/tree/main/www/docs/providers)
-3. Add provider logo svgs, like `google-dark.svg` (dark mode) and `google.svg` (light mode) to the `/packages/next-auth/provider-logos/` directory. Don't forget to set the provider's styling options in the `provider.style` config object.
-
-That's it! 🎉 Others will be able to discover this provider much more easily now!
-
-You can look at the existing built-in providers for inspiration.
-
-#### Databases
-
-If you would like to contribute to an existing database adapter or help create a new one, head over to the [nextauthjs/adapters](https://www.github.com/nextauthjs/adapters) repository and follow the instructions provided there.
-
 #### Testing
 
 Tests can be run with `pnpm test`.
@@ -105,7 +121,7 @@ Automated tests are currently crude and limited in functionality, but improvemen
 
 ## For maintainers
 
-We use [a custom script](https://github.com/nextauthjs/next-auth/blob/main/scripts/release/index.ts) together with [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0) to automate releases. This makes the maintenance process easier and less error-prone. Please study the "Conventional Commits" site to understand how to write a good commit message.
+We use [a custom script](https://github.com/balazsorban44/monorepo-release) together with [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0) to automate releases. This makes the maintenance process easier and less error-prone. Please study the "Conventional Commits" site to understand how to write a good commit message.
 
 When accepting Pull Requests, make sure the following:
 
