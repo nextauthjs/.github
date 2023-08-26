@@ -58,7 +58,24 @@ You can look at the existing built-in adapters for inspiration. For example: Pri
 
 ### Setting up local environment
 
-We use Turborepo and pnpm for managing our packages. Here is a quick guide on how to setup _next-auth_ locally to work on it and test out any changes:
+We use Turborepo and pnpm for managing our packages. 
+
+#### Repo structure
+```
+next-auth/
+├─ apps/
+│  ├─ dev/ <-- contains our dev app for nextjs, sveltekit, etc.
+│  ├─ examples/ <-- contains our examples. These will be synced to the example template repos.
+│  ├─ playgrounds/ <-- experimental stuff
+├─ packages/
+│  ├─ adapter-*/ <-- adapter packges.
+│  ├─ core/ <-- the core package. Most of the logic is here.
+│  ├─ framework-*/ <-- framework packages
+│  ├─ next-auth/ <-- next-auth@v5
+├─ docs/
+```
+
+Here is a quick guide on how to setup _next-auth_ locally to work on it and test out any changes:
 
 1. Clone the repo:
 
