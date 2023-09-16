@@ -50,6 +50,7 @@ If you would like to contribute to an existing database adapter or help create a
 1. It should have working tests
 1. The package is published as ESM-only and under the `@auth/` namespace.
 1. JSDoc for documentation.
+1. Add the adapter in `docs/sidebars.js`, `docs/docusaurus.config.js`.
 1. Add the adapter name in `.github/ISSUE_TEMPLATE/3_bug_adapter.yml`, `.github/issue-labeler.yml`, `.github/pr-labeler.yml`
 
 You can look at the existing built-in adapters for inspiration. For example: Prisma, Kysely, Drizzle, etc.
