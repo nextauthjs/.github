@@ -1,3 +1,4 @@
+![20230830_140547](https://github.com/nextauthjs/.github/assets/132777178/ae20fe52-b914-4914-97bc-c9096aeb1b9a)
 # Security Policy
 
 NextAuth.js practices responsible disclosure.
