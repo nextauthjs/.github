@@ -18,7 +18,7 @@ Before contributing, we recommend you read the [Tour de Source: NextAuth.js](htt
 
 - We are maintaining two major branches:
   - The `main` is for the latest changes regarding the `core` package, the adapters packages, and framework packages.
-  - The `v4` branch is for `next-auth@v4` related changes. 
+  - The `v4` branch is for `next-auth@v4` related changes.
   - Please make your Pull Request against the according branch.
 - Pull Requests need approval of a [core contributor](https://next-auth.js.org/contributors#core-team) before merging.
 - We use TypeScript for source.
@@ -28,18 +28,18 @@ Before contributing, we recommend you read the [Tour de Source: NextAuth.js](htt
 
 #### Adding a new Provider
 
-> NOTE: We only support new providers in the `@auth/core` package going forward. 
+> NOTE: We only support new providers in the `@auth/core` package going forward.
 
 If you think your custom provider might be useful to others, we encourage you to open a PR and add it to the built-in list so others can discover it much more easily! You will have to make the following changes:
 
-1. Add your config: [`packages/core/src/providers/{provider}.ts`](https://github.com/nextauthjs/next-auth/tree/main/packages/core/src/providers) (Make sure you use a named default export, like `export default function YourProvider`). 
+1. Add your config: [`packages/core/src/providers/{provider}.ts`](https://github.com/nextauthjs/next-auth/tree/main/packages/core/src/providers) (Make sure you use a named default export, like `export default function YourProvider`).
 1. Add the provider documentation in the same file using JSDoc.
 1. Add the provider logo to the `docs/static/img/providers/` directory.
 1. Add the provider in the drop-down list in [`.github/ISSUE_TEMPLATE/2_bug_provider.yml`](https://github.com/nextauthjs/next-auth/blob/main/.github/ISSUE_TEMPLATE/2_bug_provider.yml)
 
 That's it! 🎉 Others will be able to discover this provider much more easily now!
 
-You can look at the existing built-in providers for inspiration. 
+You can look at the existing built-in providers for inspiration.
 - If you are adding a new OIDC provider, take a look at [auth0.ts](https://github.com/nextauthjs/next-auth/blob/main/packages/core/src/providers/auth0.ts).
 - If you are adding a new OAuth 2.0 provider, take a look at [google.ts](https://github.com/nextauthjs/next-auth/blob/main/packages/core/src/providers/google.ts).
 
@@ -59,7 +59,7 @@ You can look at the existing built-in adapters for inspiration. For example: Pri
 
 ### Setting up local environment
 
-We use Turborepo and pnpm for managing our packages. 
+We use Turborepo and pnpm for managing our packages.
 
 #### Repo structure
 ```
@@ -101,15 +101,15 @@ pnpm install
 
 4. Populate `.env.local`:
 
-Copy `apps/dev/.env.local.example` to `apps/dev/.env.local`, and add your env variables for each provider you want to test.
+Copy `apps/dev/nextjs/.env.local.example` to `apps/dev/nextjs/.env.local`, and add your env variables for each provider you want to test.
 
 ```sh
-cd apps/dev
+cd apps/dev/nextjs
 cp .env.local.example .env.local
 ```
 
 > NOTE: You can add any environment variables to .env.local that you would like to use in your dev app.
-> You can find the next-auth config under`apps/dev/pages/api/auth/[...nextauth].js`.
+> You can find the next-auth config under`apps/dev/nextjs/pages/api/auth/[...nextauth].js`.
 
 5. Start the developer application/server:
 
