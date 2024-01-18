@@ -45,7 +45,7 @@ You can look at the existing built-in providers for inspiration.
 
 #### Adding a new Database Adapter
 
-If you would like to contribute to an existing database adapter or help create a new one, please follow this [guide](https://authjs.dev/guides/adapters/creating-a-database-adapter).
+If you would like to contribute to an existing database adapter or help create a new one, please follow this [guide](https://authjs.dev/guides/adapters/creating-a-database-adapter#official-adapter-guidelines).
 
 > NOTE: For core team reviewer, make sure to check all database queries to avoid introduce any vulnerabilities.
 
