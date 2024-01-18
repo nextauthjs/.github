@@ -45,15 +45,7 @@ You can look at the existing built-in providers for inspiration.
 
 #### Adding a new Database Adapter
 
-If you would like to contribute to an existing database adapter or help create a new one, you can find them under `packages/adapter-*`. Here are what we considered a baseline to get an adapter PR merged:
-
-1. It should have working tests
-1. The package is published as ESM-only and under the `@auth/` namespace.
-1. JSDoc for documentation.
-1. Add the adapter in `docs/sidebars.js`, `docs/docusaurus.config.js`.
-1. Add the adapter name in `.github/ISSUE_TEMPLATE/3_bug_adapter.yml`, `.github/issue-labeler.yml`, `.github/pr-labeler.yml`
-
-You can look at the existing built-in adapters for inspiration. For example: Prisma, Kysely, Drizzle, etc.
+If you would like to contribute to an existing database adapter or help create a new one, please follow this [guide](https://authjs.dev/guides/adapters/creating-a-database-adapter#official-adapter-guidelines).
 
 > NOTE: For core team reviewer, make sure to check all database queries to avoid introduce any vulnerabilities.
 
