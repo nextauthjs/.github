@@ -101,7 +101,7 @@ cp .env.local.example .env.local
 ```
 
 > NOTE: You can add any environment variables to .env.local that you would like to use in your dev app.
-> You can find the next-auth config under`apps/dev/nextjs/pages/api/auth/[...nextauth].js`.
+> You can find the next-auth config under `apps/dev/nextjs/auth.config.ts`.
 
 5. Start the developer application/server:
 
