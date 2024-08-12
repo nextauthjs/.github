@@ -41,7 +41,7 @@ That's it! 🎉 Others will be able to discover this provider much more easily n
 
 You can look at the existing built-in providers for inspiration.
 - If you are adding a new OIDC provider, take a look at [auth0.ts](https://github.com/nextauthjs/next-auth/blob/main/packages/core/src/providers/auth0.ts).
-- If you are adding a new OAuth 2.0 provider, take a look at [google.ts](https://github.com/nextauthjs/next-auth/blob/main/packages/core/src/providers/google.ts).
+- If you are adding a new OAuth 2.0 provider, take a look at [facebook.ts](https://github.com/nextauthjs/next-auth/blob/main/packages/core/src/providers/facebook.ts).
 
 #### Adding a new Database Adapter
 
