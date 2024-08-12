@@ -20,7 +20,7 @@ Before contributing, we recommend you read the [Tour de Source: NextAuth.js](htt
   - The `main` is for the latest changes regarding the `core` package, the adapters packages, and framework packages.
   - The `v4` branch is for `next-auth@v4` related changes.
   - Please make your Pull Request against the according branch.
-- Pull Requests need approval of a [core contributor](https://next-auth.js.org/contributors#core-team) before merging.
+- Pull Requests need approval of a [core contributor](https://authjs.dev/contributors#core-team) before merging.
 - We use TypeScript for source.
 - We use ESLint/Prettier for linting/formatting, so please run `pnpm lint` and `pnpm format` before committing to make resolving conflicts easier (VSCode users, check out [this ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [this Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to fix lint and formatting issues in development).
 - We encourage you to test your changes, and if you have the opportunity, please make those tests part of the Pull Request.
