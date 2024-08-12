@@ -34,7 +34,7 @@ If you think your custom provider might be useful to others, we encourage you to
 
 1. Add your config: [`packages/core/src/providers/{provider}.ts`](https://github.com/nextauthjs/next-auth/tree/main/packages/core/src/providers) (Make sure you use a named default export, like `export default function YourProvider`).
 1. Add the provider documentation in the same file using JSDoc.
-1. Add the provider logo to the `docs/static/img/providers/` directory.
+1. Add the provider logo to the `docs/public/img/providers` directory.
 1. Add the provider in the drop-down list in [`.github/ISSUE_TEMPLATE/2_bug_provider.yml`](https://github.com/nextauthjs/next-auth/blob/main/.github/ISSUE_TEMPLATE/2_bug_provider.yml)
 
 That's it! 🎉 Others will be able to discover this provider much more easily now!
