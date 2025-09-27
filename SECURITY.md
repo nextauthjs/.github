@@ -1,24 +1,24 @@
-# Security Policy
+## Security Policy
 
-NextAuth.js practices responsible disclosure.
+### Reporting a Vulnerability
 
-## Reporting a Vulnerability
+If you believe you've found a security vulnerability, please follow these steps:
 
-We request that you contact us directly to report serious issues that might impact the security of sites using NextAuth.js.
+1. Do not disclose the vulnerability publicly until it has been addressed by our team.
+2. Email your findings to `security@better-auth.com` Include:
+    - State the repository which the vulnerability comes from (In this case NextAuth)
+    - A description of the vulnerability
+    - Steps to reproduce the vulnerability
+    - Potential impact of the vulnerability
+    - Any suggestions for mitigation
+    - Any other relevant information
+3. We will respond to your report within 72 hours.
+4. If the issue is confirmed, we will release a patch as soon as possible.
 
-If you contact us regarding a serious issue:
+### Disclosure Policy
 
-- We will endeavor to get back to you within 72 hours.
-- We will aim to publish a fix within 30 days.
-- We will disclose the issue (and credit you, with your consent) once a fix to resolve the issue has been released.
-- If 90 days has elapsed and we still don't have a fix, we will disclose the issue publicly.
-
-The best way to report an issue is by contacting us via email at hi@thvu.dev, info@balazsorban.com and yo@ndo.dev, or raise a public issue requesting someone get in touch with you via whatever means you prefer for more details. (Please do not disclose sensitive details publicly at this stage.)
-
-> For less serious issues (e.g. RFC compliance for unsupported flows or potential issues that may cause a problem in the future) it is appropriate to submit these publicly as bug reports or feature requests or to raise a question to open a discussion around them.
+If the issue is confirmed, we will release a patch as soon as possible. Once a patch is released, we will disclose the issue publicly. If 90 days has elapsed and we still don't have a fix, we will disclose the issue publicly.
 
 ## Supported Versions
 
-Security updates are only released for the current version.
-
-Old releases are not maintained and do not receive updates.
+We only support the latest version. Older versions are not supported.
