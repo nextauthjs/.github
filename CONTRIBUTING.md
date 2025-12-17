@@ -61,7 +61,7 @@ next-auth/
 │  ├─ examples/ <-- contains our examples. These will be synced to the example template repos.
 │  ├─ playgrounds/ <-- experimental stuff
 ├─ packages/
-│  ├─ adapter-*/ <-- adapter packges.
+│  ├─ adapter-*/ <-- adapter packages.
 │  ├─ core/ <-- the core package. Most of the logic is here.
 │  ├─ framework-*/ <-- framework packages
 │  ├─ next-auth/ <-- next-auth@v5
@@ -77,13 +77,13 @@ git clone git@github.com:nextauthjs/next-auth.git
 cd next-auth
 ```
 
-2. Set up the correct pnpm version, using [Corepack](https://nodejs.org/api/corepack.html). Run the following in the project'a root:
+2. Set up the correct pnpm version, using [Corepack](https://nodejs.org/api/corepack.html). Run the following in the project's root:
 
 ```sh
 corepack enable pnpm
 ```
 
-(Now, if you run `pnpm --version`, it should print the same verion as the `packageManager` property in the [`package.json` file](https://github.com/nextauthjs/next-auth/blob/main/package.json))
+(Now, if you run `pnpm --version`, it should print the same version as the `packageManager` property in the [`package.json` file](https://github.com/nextauthjs/next-auth/blob/main/package.json))
 
 3. Install packages. Developing requires Node.js v18:
 
